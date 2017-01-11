@@ -11,7 +11,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res) {
+    console.log("tolo akbasadfkin")
     if (!req.body.userName || !req.body.password) {
+
+        console.log(req.body);
         res.json({success: false, msg: 'Please pass name and password.'});
     } else {
         var newUser = new User({

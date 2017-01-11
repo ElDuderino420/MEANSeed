@@ -5,7 +5,7 @@ angular.module('starter')
 
   .controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
     $scope.user = {
-      name: '',
+      userName: '',
       password: ''
     };
 
@@ -23,7 +23,7 @@ angular.module('starter')
 
   .controller('RegisterCtrl', function($scope, AuthService, $ionicPopup, $state) {
     $scope.user = {
-      name: '',
+      userName: '',
       password: ''
     };
 
@@ -49,7 +49,7 @@ angular.module('starter')
     };
 
     $scope.getInfo = function() {
-      $http.get(API_ENDPOINT.url + '/memberinfo').then(function(result) {
+      $http.get(API_ENDPOINT.url + '/api/memberinfo').then(function(result) {
         $scope.memberinfo = result.data.msg;
       });
     };

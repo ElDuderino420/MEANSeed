@@ -36,8 +36,16 @@ angular.module('starter')
     }
 
     var register = function(user) {
+      console.log(user);
       return $q(function(resolve, reject) {
-        $http.post(API_ENDPOINT.url + '/signup', user).then(function(result) {
+        $http({
+          'method' : 'POST',
+          'url' : API_ENDPOINT.url + '/users/signup',
+          data : user,
+          'headers' : {'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'}
+          }
+
+          ).then(function(result) {
           if (result.data.success) {
             resolve(result.data.msg);
           } else {
@@ -49,7 +57,12 @@ angular.module('starter')
 
     var login = function(user) {
       return $q(function(resolve, reject) {
-        $http.post(API_ENDPOINT.url + '/authenticate', user).then(function(result) {
+        $http.post(API_ENDPOINT.url + '/users/authenticate', {
+          headers : {
+            'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
+          },
+          data : user
+        }).then(function(result) {
           if (result.data.success) {
             storeUserCredentials(result.data.token);
             resolve(result.data.msg);

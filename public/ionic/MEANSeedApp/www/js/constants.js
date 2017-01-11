@@ -8,6 +8,6 @@ angular.module('starter')
   })
 
   .constant('API_ENDPOINT', {
-    url: 'http://127.0.0.1:1337/api'
+    url: 'http://127.0.0.1:3000'
     //  For a simulator use: url: 'http://127.0.0.1:8080/api'
   });
